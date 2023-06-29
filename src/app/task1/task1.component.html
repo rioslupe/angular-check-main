@@ -1,1 +1,4 @@
-<p>task1 works!</p>
+<hd-todo-form (addTodo)="addTodo($event)" ></hd-todo-form>
+<br />
+<br />
+<hd-todos [todos]="todos" (deleteTodo)="deleteTodo($event)"></hd-todos>

@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Enter a todo.</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <mat-form-field class="full-width">
+        <input matInput type="text" maxlength="minLength" formControlName="todo" placeholder="Ex. Clean the kitchen." />
+
+        <mat-error *ngIf="form.controls['todo'].hasError('required')">You must enter a todo.</mat-error>
+        <mat-error *ngIf="form.controls['todo'].hasError('minlength')">Must enter at least ({{minlength}}) characters.</mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="createTodo()">Add Todo</button>
+  </mat-card-actions>
+</mat-card>
