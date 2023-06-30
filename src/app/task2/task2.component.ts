@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {DataService, Todo} from "../data.service";
+import {Todo} from "../shared/models/todo";
+import {DataService} from "../shared/services/data.service";
 import {TodosComponent} from "../shared/components/todos/todos.component";
 import {TodoFormComponent} from "../shared/components/todo-form/todo-form.component";
 import {MatButtonModule} from "@angular/material/button";

@@ -1,11 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, of} from 'rxjs';
-
-export type Todo = {
-  id: number;
-  text: string;
-  completed: boolean;
-};
+import {Todo} from "../models/todo";
 
 @Injectable({
   providedIn: 'root',
