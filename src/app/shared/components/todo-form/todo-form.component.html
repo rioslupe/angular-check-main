@@ -1,14 +1,22 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Enter a todo.</mat-card-title>
+    <mat-card-title>Create a todo</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="form">
       <mat-form-field class="full-width">
-        <input matInput type="text" maxlength="minLength" formControlName="todo" placeholder="Ex. Clean the kitchen." />
+        <input matInput type="text" maxlength="minLength" formControlName="text" placeholder="Ex. Clean the kitchen." />
 
-        <mat-error *ngIf="form.controls['todo'].hasError('required')">You must enter a todo.</mat-error>
-        <mat-error *ngIf="form.controls['todo'].hasError('minlength')">Must enter at least ({{minlength}}) characters.</mat-error>
+        <mat-error *ngIf="form.controls['text'].hasError('required')">You must enter a todo.</mat-error>
+        <mat-error *ngIf="form.controls['text'].hasError('minlength')">Must enter at least ({{minlength}}) characters.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" *ngIf="hasCategory">
+        <mat-label>Select a category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of categories" [value]="category">{{category.text}}</mat-option>
+        </mat-select>
+        <mat-hint align="start" *ngIf="!categories.length">Must have at least one category created.</mat-hint>
       </mat-form-field>
     </form>
   </mat-card-content>

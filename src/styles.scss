@@ -4,5 +4,9 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-divider {
-  margin: 20px 0px !important;
+  margin: 20px 0 !important;
+}
+
+.full-width{
+  width: 100%
 }

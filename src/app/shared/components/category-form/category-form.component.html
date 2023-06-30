@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create a category</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <mat-form-field class="full-width">
+        <input matInput type="text" formControlName="category" placeholder="Ex. House work." />
+        <mat-error *ngIf="form.controls['category'].hasError('required')">You must enter a category.</mat-error>
+        <mat-error *ngIf="form.controls['category'].hasError('minlength')">Must enter at least ({{minlength}}) characters.</mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="createCategory()">Add Category</button>
+  </mat-card-actions>
+</mat-card>

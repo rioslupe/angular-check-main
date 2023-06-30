@@ -7,7 +7,8 @@
 
     <mat-list>
       <mat-list-item *ngFor="let todo of todos">
-        <div matListItemTitle>{{todo.text}}</div>
+        <div matListItemTitle *ngIf="todo.category">{{todo.category.text}}</div>
+        <div matListItemLine>{{todo.text}}</div>
         <div matListItemMeta>
           <button mat-icon-button  (click)="deleteTodo.emit(todo.id)" color="warn">
             <mat-icon>delete</mat-icon>

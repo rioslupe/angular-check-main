@@ -27,9 +27,8 @@ export class Task1Component implements OnInit {
     });
   }
 
-
-  addTodo(event :string) {
-    this.dataService.add({text: event});
+  addTodo(event: {text: string}) {
+    this.dataService.add(event);
   }
 
   deleteTodo(event :number) {
