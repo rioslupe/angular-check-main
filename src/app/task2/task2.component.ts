@@ -10,11 +10,12 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatListModule} from "@angular/material/list";
+import {TaskComponent} from "../shared/components/task/task.component";
 
 @Component({
   selector: 'hd-task2',
   standalone: true,
-  imports: [CommonModule, TodosComponent, TodoFormComponent, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatListModule],
+  imports: [CommonModule, TodosComponent, TodoFormComponent, MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatListModule, TaskComponent],
   templateUrl: './task2.component.html',
   styleUrls: ['./task2.component.scss']
 })

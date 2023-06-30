@@ -1,0 +1,22 @@
+<h1>Task {{taskId}}</h1>
+
+<div style="display: flex; flex-direction: row;">
+  <hd-todo-form
+    (addTodo)="addTodo($event)"
+    [hasCategory]="hasCategory"
+    [categories]="categories"
+    [ngStyle]="{'width': hasCategory ? '60%': '100%', 'margin-right': hasCategory ? '20px': '0'}">
+  </hd-todo-form>
+  <hd-category-form (addCategory)="addCategory($event)" *ngIf="hasCategory" style="width: 40%"></hd-category-form>
+</div>
+
+<mat-divider></mat-divider>
+
+<hd-todos
+  [canEdit]="canEdit"
+  [canEditCategory]="canEditCategory"
+  [canFilter]="canFilter"
+  [todos]="todos"
+  (deleteTodo)="deleteTodo($event)"
+  (updateTodo)="updateTodo($event)">
+</hd-todos>

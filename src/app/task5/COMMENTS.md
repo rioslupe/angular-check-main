@@ -1,1 +1,2 @@
 - Should you delete the category if they are not being referenced anymore?
+- Could have worked the tasks in reverse order to have saved a lot of duplicate code and time. Oops.

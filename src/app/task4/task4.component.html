@@ -1,10 +1,17 @@
-<h1>Task 4</h1>
+<!--<h1>Task 4</h1>-->
 
-<div style="display: flex; flex-direction: row;">
-  <hd-todo-form (addTodo)="addTodo($event)" [hasCategory]="true" [categories]="categories" style="width: 60%; margin-right: 20px"></hd-todo-form>
-  <hd-category-form (addCategory)="addCategory($event)"  style="width: 40%"></hd-category-form>
-</div>
+<!--<div style="display: flex; flex-direction: row;">-->
+<!--  <hd-todo-form (addTodo)="addTodo($event)" [hasCategory]="true" [categories]="categories" style="width: 60%; margin-right: 20px"></hd-todo-form>-->
+<!--  <hd-category-form (addCategory)="addCategory($event)"  style="width: 40%"></hd-category-form>-->
+<!--</div>-->
 
-<mat-divider></mat-divider>
+<!--<mat-divider></mat-divider>-->
 
-<hd-todos [canEdit]="true" [canFilter]="true" [todos]="todos" (deleteTodo)="deleteTodo($event)" (updateTodo)="updateTodo($event)"></hd-todos>
+<!--<hd-todos [canEdit]="true" [canFilter]="true" [todos]="todos" (deleteTodo)="deleteTodo($event)" (updateTodo)="updateTodo($event)"></hd-todos>-->
+
+<hd-task
+  [taskId]="4"
+  [canEdit]="true"
+  [hasCategory]="true"
+  [canFilter]="true">
+</hd-task>
