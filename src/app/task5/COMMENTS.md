@@ -1,0 +1,1 @@
+- Should you delete the category if they are not being referenced anymore?

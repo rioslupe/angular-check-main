@@ -61,13 +61,13 @@ export class DataService {
     return of();
   }
 
-  public update(id: number, text: string): Observable<void> {
+  public update(todo: Todo): Observable<void> {
     // TODO - come back and verify this is how you want to update the array.
-    this.#data.next([...this.#data.value.map((todo) => {
-      if (todo.id === id) {
-        return {...todo, text}
+    this.#data.next([...this.#data.value.map((t) => {
+      if (t.id === todo.id) {
+        return {...t, text: todo.text, category: todo.category}
       }
-      return todo;
+      return t;
     })]);
     return of();
   }

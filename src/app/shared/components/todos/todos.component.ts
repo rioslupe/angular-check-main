@@ -20,13 +20,13 @@ import {ConfirmationDialogComponent} from "../confirmation-dialog/confirmation-d
 })
 export class TodosComponent implements OnChanges {
   @Input() canEdit = false;
+  @Input() canEditCategory = false;
   @Input() canFilter = false;
   @Input() todos: Todo[] = [];
 
   @Output() deleteTodo: EventEmitter<number> = new EventEmitter<number>();
-  @Output() updateTodo: EventEmitter<{ id: number, text: string }> = new EventEmitter<{ id: number, text: string }>();
+  @Output() updateTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
-  // TODO - might need to replace the mat-list with something else.
   displayTodos: Todo[] = [];
 
   constructor(public dialog: MatDialog) {
@@ -40,12 +40,12 @@ export class TodosComponent implements OnChanges {
 
   openTodoDialog(todo: Todo): void {
     const dialogRef = this.dialog.open(TodoDialogComponent, {
-      data: todo,
+      data: {todo: todo, canEditCategory: this.canEditCategory},
     });
 
-    dialogRef.afterClosed().subscribe((text: string) => {
-      if (text) {
-        this.updateTodo.emit({id: todo.id, text})
+    dialogRef.afterClosed().subscribe((todo: Todo) => {
+      if (todo) {
+        this.updateTodo.emit(todo)
       }
     });
   }

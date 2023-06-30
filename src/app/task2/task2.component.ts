@@ -40,7 +40,7 @@ export class Task2Component implements OnInit {
     this.dataService.remove(event);
   }
 
-  updateTodo(event: {id: number, text: string}) {
-    this.dataService.update(event.id, event.text);
+  updateTodo(event: Todo) {
+    this.dataService.update(event);
   }
 }

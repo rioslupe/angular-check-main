@@ -43,8 +43,8 @@ export class Task3Component implements OnInit {
     this.dataService.remove(event);
   }
 
-  updateTodo(event: { id: number, text: string }) {
-    this.dataService.update(event.id, event.text);
+  updateTodo(event: Todo) {
+    this.dataService.update(event);
   }
 
   addCategory(event: string) {
