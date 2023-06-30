@@ -44,6 +44,17 @@ export class DataService {
     return of();
   }
 
+  public update(id: number, text: string): Observable<void> {
+    // TODO - come back and verify this is how you want to update the array.
+    this.#data.next([...this.#data.value.map((todo) => {
+      if (todo.id === id) {
+        return {...todo, text}
+      }
+      return todo;
+    })]);
+    return of();
+  }
+
   private initialize() {
     this.#nextId = this.#initialData.length + 1;
     this.#data.next(this.#initialData);

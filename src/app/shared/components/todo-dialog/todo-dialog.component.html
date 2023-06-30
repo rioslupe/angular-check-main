@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Update Todo</h1>
+<mat-dialog-content mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field class="full-width">
+      <input matInput type="text" maxlength="minLength" formControlName="todo" placeholder="Ex. Clean the kitchen." />
+
+      <mat-error *ngIf="form.controls['todo'].hasError('required')">You must enter a todo.</mat-error>
+      <mat-error *ngIf="form.controls['todo'].hasError('minlength')">Must enter at least ({{minlength}}) characters.</mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="update()">Update Todo</button>
+</mat-dialog-actions>
