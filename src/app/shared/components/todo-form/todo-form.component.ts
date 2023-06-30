@@ -48,6 +48,10 @@ export class TodoFormComponent implements OnChanges {
     if (this.form.valid) {
       this.addTodo.emit(this.form.value);
       this.form.reset();
+
+      if(this.hasCategory && this.categories.length === 1) {
+        this.form.controls['category'].setValue(this.categories[0])
+      }
     }
   }
 }

@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Delete Todo</h1>
+<mat-dialog-content mat-dialog-content>
+  Are you sure you want to delete <strong style="color: red">{{data.category?.text}} {{data.text}}</strong>?
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="warn" (click)="delete()">Delete</button>
+</mat-dialog-actions>

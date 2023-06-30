@@ -49,7 +49,15 @@ export class DataService {
   }
 
   public remove(id: number): Observable<void> {
+    const foundTodo = this.#data.value.find((todo) => todo.id === id);
+
     this.#data.next(this.#data.value.filter((t) => t.id !== id));
+
+    // this seems hacky.
+    const todosWithSameCategoryId = this.#data.value.filter((todo) => todo.category?.id === foundTodo?.category?.id);
+    if (!todosWithSameCategoryId.length && foundTodo && foundTodo.category) {
+      this.removeCategory(foundTodo.category.id)
+    }
     return of();
   }
 
@@ -68,6 +76,11 @@ export class DataService {
     const newCategory = {...this.#defaultCategory, ...category, id: this.#nextCategoryId++};
     this.#categoryData.next([...this.#categoryData.value, newCategory]);
     return of(newCategory);
+  }
+
+  public removeCategory(id: number): Observable<void> {
+    this.#categoryData.next(this.#categoryData.value.filter((t) => t.id !== id));
+    return of();
   }
 
   public updateCategory(id: number, text: string): Observable<void> {

@@ -1,16 +1,25 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Todo List</mat-card-title>
+    <mat-card-title>
+      <div style="display: flex; place-content: stretch space-between;">
+        <div>Todo List</div>
+
+        <mat-form-field *ngIf="canFilter && todos.length">
+          <input matInput placeholder="Filter todos" (keyup)="applyFilter($event)" />
+          <mat-icon matSuffix>filter_list</mat-icon>
+        </mat-form-field>
+      </div>
+    </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <h3 *ngIf="todos.length === 0" style="text-align: center">No todo items have been entered.</h3>
+    <h3 *ngIf="!todos.length" style="text-align: center">No todo items have been entered.</h3>
 
     <mat-list>
-      <mat-list-item *ngFor="let todo of todos">
+      <mat-list-item *ngFor="let todo of displayTodos">
         <div matListItemTitle *ngIf="todo.category">{{todo.category.text}}</div>
         <div matListItemLine>{{todo.text}}</div>
         <div matListItemMeta>
-          <button mat-icon-button  (click)="deleteTodo.emit(todo.id)" color="warn">
+          <button mat-icon-button  (click)="delete(todo)" color="warn">
             <mat-icon>delete</mat-icon>
           </button>
           <button mat-icon-button (click)="openTodoDialog(todo)" *ngIf="canEdit">
