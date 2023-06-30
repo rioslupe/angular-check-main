@@ -5,12 +5,11 @@ import {TodoFormComponent} from "../shared/components/todo-form/todo-form.compon
 import {MatDividerModule} from "@angular/material/divider";
 import {Todo} from "../shared/models/todo";
 import {DataService} from "../shared/services/data.service";
-import {TaskComponent} from "../shared/components/task/task.component";
 
 @Component({
   selector: 'hd-task1',
   standalone: true,
-  imports: [CommonModule, TodosComponent, TodoFormComponent, MatDividerModule, TaskComponent],
+  imports: [CommonModule, TodosComponent, TodoFormComponent, MatDividerModule],
   templateUrl: './task1.component.html',
   styleUrls: ['./task1.component.scss']
 })

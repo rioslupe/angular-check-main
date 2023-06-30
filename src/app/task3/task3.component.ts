@@ -7,12 +7,11 @@ import {Todo} from "../shared/models/todo";
 import {DataService} from "../shared/services/data.service";
 import {Category} from "../shared/models/category";
 import {CategoryFormComponent} from "../shared/components/category-form/category-form.component";
-import {TaskComponent} from "../shared/components/task/task.component";
 
 @Component({
   selector: 'hd-task3',
   standalone: true,
-  imports: [CommonModule, MatDividerModule, TodoFormComponent, TodosComponent, CategoryFormComponent, TaskComponent],
+  imports: [CommonModule, MatDividerModule, TodoFormComponent, TodosComponent, CategoryFormComponent],
   templateUrl: './task3.component.html',
   styleUrls: ['./task3.component.scss']
 })
